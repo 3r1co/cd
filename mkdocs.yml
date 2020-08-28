@@ -1,4 +1,4 @@
-site_name: 'ISEN Secure Supply Chain Course'
+site_name: 'ISEN Development Environment Course'
 nav:
     - Home: 'README.md'
     - Prerequisites: prerequisites.md
@@ -7,22 +7,13 @@ nav:
     - Getting Started on Github: github.md
     - Github Actions: actions.md
     - CI with Github Actions and Docker: ecr.md
-    - Getting Started with AWS: aws.md
-    - Cloudformation Deployment: cloudformation.md
-    - Deploy Containers with ECS: ecs.md
-    - Cloudformation Linting: cfn-nag.md
-    - EKS Setup: eks.md
-    - Juice Shop: juice-shop.md
     - Static Code Analysis: sonar.md
     - 3rd Party Dependency Check: dependency-check.md
     - Container Vulnerability Scanning with Clair: clair.md
     - Dynamic Application Security Scanning: zapproxy.md
-    - Write your own Github Action: arachni.md
-    - Jenkins CI Server: jenkins.md
-    - Build Docker with Jenkins and Kaniko: kaniko.md
     - Kubernetes Pod Security Policies: psp.md
     - Kubernetes Network Policies: network-policies.md
-    - DefectDojo: defectdojo.md
+    - The Project: project.md
 theme:
   name: 'material'
 markdown_extensions:
