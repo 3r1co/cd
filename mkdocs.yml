@@ -10,7 +10,7 @@ nav:
     - Static Code Analysis: sonar.md
     - 3rd Party Dependency Check: dependency-check.md
     - Container Vulnerability Scanning with Clair: clair.md
-    - Dynamic Application Security Scanning: zapproxy.md
+    - Git training: git.md
     - Kubernetes Pod Security Policies: psp.md
     - Kubernetes Network Policies: network-policies.md
     - The Project: project.md
