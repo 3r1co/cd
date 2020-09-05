@@ -38,3 +38,5 @@ In order to succeed, please
 - Track your requirements in Github through the opening of issues
     - You can mark an issue as resolved once the requirement is implemented and all the points above have been met
 - In case you requirement something specific from another microservice team, raise an issue in Github and describe the desired functionality
+
+![Project Setup](./files/project.png "Project Setup")
