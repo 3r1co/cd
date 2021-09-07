@@ -1,6 +1,6 @@
 # Git
 
-In order to success in collaborative development, it's important to know the basics about Git
+In order to succeed in collaborative development, it's important to know the basics about Git
 In this practice section, please work in pairs:
 
 - Each of you creates a new Git repository

@@ -20,7 +20,7 @@ To perform this lab:
 
 1.  In your terminal, position yourself in the directory:
 
-        cd c:\Users\<loginldap>\Desktop\CloudAwarenessLab
+        cd c:\Users\<username>\Desktop\CloudAwarenessLab
    
 1. Open the previously downloaded file "Dockerfile" in an editor:
     

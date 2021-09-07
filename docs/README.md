@@ -29,7 +29,7 @@ Throughout the course, the students will learn how to:
 1. [Kubernetes Pod Security Policies](./psp.md)
 1. [Kubernetes Network Security Policies](./network-policies.md)
 
-## Day 3 & 4
+## Day 3
 
 1. [The Project](./project.md)
 
