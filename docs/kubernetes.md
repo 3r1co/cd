@@ -20,7 +20,7 @@ The goal of this lab is to
 		Server Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.10", GitCommit:"37d169313237cb4ceb2cc4bef300f2ae3053c1a2", GitTreeState:"clean", BuildDate:"2019-08-19T10:44:49Z", GoVersion:"go1.11.13", Compiler:"gc", Platform:"linux/amd64"}
 
 
-1. Download the following file to your "CloudAwarenessLab" folder:  
+1. Download the following file to your "DevelopmentEnvironment" folder:  
 
     -  [deployment.yaml](./files/kubernetes/deployment.yaml)  
 
@@ -44,7 +44,7 @@ The goal of this lab is to
 	Write down the name of the Pod, you'll need it later for reference.
 
 1. In order to access your application, you have to deploy a Kubernetes service.   
-Download the following file your "CloudAwarenessLab" folder: 
+Download the following file your "DevelopmentEnvironment" folder: 
 
     - [service.yaml](./files/kubernetes/service.yaml) 
 
@@ -100,7 +100,7 @@ You can find the associated port number by typing:
 
 1. Refresh your browser, and see how to greeting changed.
 
-1. Now let's use another mean to configure our application: the Kubernetes **ConfigMap**. Download the sample ConfigMap to your "CloudAwarenessLab" folder:  
+1. Now let's use another mean to configure our application: the Kubernetes **ConfigMap**. Download the sample ConfigMap to your "DevelopmentEnvironment" folder:  
 
     - [configmap.yaml](./files/kubernetes/configmap.yaml)
 

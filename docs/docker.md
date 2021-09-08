@@ -13,14 +13,14 @@ To perform this lab:
 
         docker login
 
-1. Create a directory for this training on your Desktop (e.g. "CloudAwarenessLab"). Download the following files in this directory:
+1. Create a directory for this training on your Desktop (e.g. "DevelopmentEnvironment"). Download the following files in this directory:
 
     - [Dockerfile](../files/docker/Dockerfile) (the file to build the Docker image)
     - [app.js](./files/docker/app.js) (the application source code)
 
 1.  In your terminal, position yourself in the directory:
 
-        cd c:\Users\<username>\Desktop\CloudAwarenessLab
+        cd c:\Users\<username>\Desktop\DevelopmentEnvironment
    
 1. Open the previously downloaded file "Dockerfile" in an editor:
     
