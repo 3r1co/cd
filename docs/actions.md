@@ -34,3 +34,5 @@ This file must be placed under `.github/workflows/build.yaml`:
 
 Take care that you need to specify your username and password in the project secrets according to this documentation: https://docs.github.com/en/actions/reference/encrypted-secrets
 The environment variable for your username should be `DOCKER_USERNAME`, the one for your password `DOCKER_PASSWORD`.
+
+As a security measure, instead of using your hub.docker.com password, you can also create an access token as described here: https://docs.docker.com/docker-hub/access-tokens/
