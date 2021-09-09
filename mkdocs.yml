@@ -9,7 +9,7 @@ nav:
     - CI with Github Actions and Docker: ecr.md
     - Static Code Analysis: sonar.md
     - 3rd Party Dependency Check: dependency-check.md
-    - Container Vulnerability Scanning with Clair: clair.md
+    - Container Vulnerability Scanning with Trivy: clair.md
     - Kubernetes Pod Security Policies: psp.md
     - Kubernetes Network Policies: network-policies.md
     - Git training: git.md

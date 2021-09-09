@@ -1,4 +1,4 @@
-# Docker Vulnerability Scanning with Clair (1 hour)
+# Docker Vulnerability Scanning with Trivy (1 hour)
 
 So far, we uncovered vulnerabilities in
 
@@ -10,7 +10,7 @@ Another vulnerability factor can be the libraries that are integrated in your op
 
 A famous open source vulnerability scanner for Docker images is [Trivy](https://github.com/aquasecurity/trivy-action).
 
-Here a way to run the clair scan:
+Here a way to run the Trivy scan:
 
     - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
