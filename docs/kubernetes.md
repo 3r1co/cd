@@ -152,8 +152,8 @@ As you already learned how to inject environment variables, let's now inject the
 			  readOnly: true
 		volumes:
 		- name: webserver-secret
-			secret:
-			  secretName: webserver-secret
+	      secret:
+		    secretName: webserver-secret
 
 1. Refresh your browser, and see how the greeting changed.
 
