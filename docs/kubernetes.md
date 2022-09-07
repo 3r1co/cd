@@ -148,12 +148,12 @@ As you already learned how to inject environment variables, let's now inject the
 			name: webserver
 			volumeMounts:
 			- name: webserver-secret
-			mountPath: "/var/secret"
-			readOnly: true
+			  mountPath: "/var/secret"
+			  readOnly: true
 		volumes:
 		- name: webserver-secret
 			secret:
-			secretName: webserver-secret
+			  secretName: webserver-secret
 
 1. Refresh your browser, and see how the greeting changed.
 
