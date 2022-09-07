@@ -146,13 +146,13 @@ As you already learned how to inject environment variables, let's now inject the
 		  imagePullPolicy: IfNotPresent # exists already
 		  name: webserver # exists already
 		  volumeMounts:
-		  - name: webserver-secret
+		  - name: webserver-secret # References the name of the volume specified below
             mountPath: "/var/secret"
             readOnly: true
 		volumes:
 		- name: webserver-secret
 	      secret:
-		    secretName: webserver-secret
+		    secretName: webserver-secret # References the secret name from step 1
 			optional: false
 
 1. Refresh your browser, and see how the greeting changed.
