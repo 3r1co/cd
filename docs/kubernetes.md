@@ -141,19 +141,19 @@ As you already learned how to inject environment variables, let's now inject the
 
 	And edit the file in the following way:
 
-		spec:
-		containers:
-		- image: mywebserver:1.0
-			imagePullPolicy: IfNotPresent
-			name: webserver
-			volumeMounts:
-			- name: webserver-secret
-			  mountPath: "/var/secret"
-			  readOnly: true
+		containers: # exists already
+		- image: mywebserver:1.0 # exists already
+		  imagePullPolicy: IfNotPresent # exists already
+		  name: webserver # exists already
+		  volumeMounts:
+		  - name: webserver-secret
+            mountPath: "/var/secret"
+            readOnly: true
 		volumes:
 		- name: webserver-secret
 	      secret:
 		    secretName: webserver-secret
+			optional: false
 
 1. Refresh your browser, and see how the greeting changed.
 
