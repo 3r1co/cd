@@ -121,10 +121,10 @@ You can find the associated port number by typing:
 			name: webserver
 			env:
 			- name: GREETING
-			valueFrom:
+			  valueFrom:
 				configMapKeyRef:
-				name: webserver-configmap
-				key: greeting
+				  name: webserver-configmap
+				  key: greeting
 
 ## Application Secrets
 
