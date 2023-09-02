@@ -1,29 +1,53 @@
 const http = require('http');
-const os = require('os');
 const fs = require('fs');
+const os = require('os');
 
-const hostname = '0.0.0.0';
-const port = 3000;
+// Get the greeting from the "GREETING" environment variable, or use a default value
+const greeting = process.env.GREETING || 'Hello World!';
 
-const greeting = process.env.GREETING || "Hello World"
-const path = process.env.FILE_PATH || '/var/secret/secret.txt'
-
-let fileContent = ""
-fs.access(path, fs.F_OK, (err) => {
-  if (err) {
-    return
-  }
-  fs.readFile(path, 'utf8', function(err, contents) {
-    fileContent = contents;
-  });
-})
+// Get the file path from the "FILE_PATH" environment variable, or use a default value
+const filePath = process.env.FILE_PATH || '/var/secret/secret.txt';
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end(`${greeting} from ${os.hostname()}\n${fileContent}\n`);
+  if (req.url === '/') {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        // File not found or error reading the file
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end(`${greeting}\nServer hostname: ${os.hostname()}\n`);
+      } else {
+        // File found, send its content along with the server hostname
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end(`File content:\n${data}\nServer hostname: ${os.hostname()}\n`);
+      }
+    });
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not Found\n');
+  }
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+const port = 3000;
+
+server.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server hostname is ${os.hostname()}`);
+  console.log(`File path is set to: ${filePath}`);
+});
+
+// Gracefully handle shutdown signals
+process.on('SIGINT', () => {
+  console.log('Received SIGINT signal. Shutting down gracefully.');
+  server.close(() => {
+    console.log('Server has been closed.');
+    process.exit(0);
+  });
+});
+
+process.on('SIGTERM', () => {
+  console.log('Received SIGTERM signal. Shutting down gracefully.');
+  server.close(() => {
+    console.log('Server has been closed.');
+    process.exit(0);
+  });
 });
