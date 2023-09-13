@@ -77,4 +77,9 @@ To perform this lab:
 
 ## Follow up exercise (30 Minutes)
 
-After you learned how to build, run and push a Docker image, try to build the same application you saw here in another programming language (preferrably Java).
+After you learned how to build, run and push a Docker image, try to build the same application you saw here in another programming language.
+
+Check out the Golang example as well:
+
+    - [Dockerfile](../files/docker/go/Dockerfile) (the file to build the Docker image)
+    - [app.go](./files/docker/go/app.go) (the application source code)
