@@ -56,12 +56,8 @@ To perform this lab:
 
         docker logs <id of the container>
 
-1. Your container is running in the VM created by Minikube. As you exposed the port 3000 in the previous step, we now need to find the IP address if your Minikube VM:  
 
-        minikube ip 
-
-
-1. In your browser, open [http://minikube-ip:3000](http://<minikube-ip>:3000).  
+1. In your browser, open [http://localhost:3000](http://localhost:3000).  
    You should see "Hello World" now.
 
 1. Once you are satisfied with the result, you can transfer your image from local Docker registry to the global Docker registry. Do do so, tag your image and push it to docker.io:
