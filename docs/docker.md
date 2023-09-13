@@ -77,5 +77,7 @@ After you learned how to build, run and push a Docker image, try to build the sa
 
 Check out the Golang example as well:
 
-    - [Dockerfile](../files/docker/go/Dockerfile) (the file to build the Docker image)
-    - [app.go](./files/docker/go/app.go) (the application source code)
+- [Dockerfile](../files/docker/go/Dockerfile) (the file to build the Docker image)
+- [app.go](./files/docker/go/app.go) (the application source code)
+
+
