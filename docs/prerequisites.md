@@ -4,9 +4,24 @@ Please follow the instructions on this page carefully, as they will help you avo
 
 The goal of the prerequisite step is to provide you a fully working development environment, containing Docker and Kubernetes.
 
-**Attention: If you are using Windows 10 or Mac, you can also use [Docker Desktop](https://www.docker.com/products/docker-desktop) in place of minikube. **
+Please install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+After installing, also enable Kubernetes in the settings, as it will be part of following exercises.
 
-In order to achieve that, you'll be guided through the following steps:
+1. Verify that you can access the Docker CLI:  
+
+        docker info
+
+1. Verify that you can access the Kubernetes CLI:
+
+        kubectl version
+
+Below you can see an diagram of your workstation setup, which should help you understanding how the different components are interacting:  
+
+![Workstation Setup](./files/prerequisites/setup.png "Workstation Setup")
+
+# Alternative Setup Guide
+
+Sometimes it can happen that Docker Desktop does not run your computer. In this case, we can try the alternative approach below:
 
 * Install Chocolatey, a Package Manager for Windows
 * With Chocolatey, you will install the following packages on your workstation:  
@@ -69,16 +84,3 @@ To perform this lab:
 
         or
             eval $(minikube docker-env)
-
-1. Verify that you can access the Docker CLI:  
-
-        docker info
-
-1. Verify that you can access the Kubernetes CLI:
-
-        kubectl version
-
-Below you can see an diagram of your workstation setup, which should help you understanding how the different components are interacting:  
-
-![Workstation Setup](./files/prerequisites/setup.png "Workstation Setup")
-
