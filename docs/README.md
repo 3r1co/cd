@@ -1,7 +1,5 @@
 # Introduction
 
-# Hello ITII
-
 This training material is part of the Collaborative Development Course of ISEN Toulon.
 
 The course takes place over four days and intends to give students an overview of all technologies that are revolving around Collaborative Development and Container technologies with a special focus on "cloud".
