@@ -64,7 +64,7 @@ You can find the associated port number by typing:
 		kubernetes          ClusterIP   10.96.0.1        <none>        443/TCP        126d
 		webserver-service   NodePort    10.98.147.142    <none>        80:31478/TCP   4s
 
-1. In your browser, open the IP of your Minikube VM (which you retrieved in the previous lab) and add the port that you retrieved from the last command, e.g.: 	[http://minikube-ip:31478](http://minikube-ip:31478).  
+1. In your browser, open http://localhost:xxxxx and add the port that you retrieved from the last command, e.g.: 	[http://localhost:31478](http://localhost:31478).  
    You should see "Hello World" example from before, but it's hosted in Kubernetes.  
    You should also see that the hostname is equal to the Pod name that you wrote down earlier.
 
