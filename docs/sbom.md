@@ -184,7 +184,7 @@ After the workflow runs successfully, you can download the SBOMs from the workfl
 
 What do realize about the two files? Why would you think one is bigger than the other?
 
-Download both artifacts and analyze them on  https://apps.rancher.io/sbom-viewer
+Download both artifacts and analyze them [here](https://apps.rancher.io/sbom-viewer).
 
 ---
 
