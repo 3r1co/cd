@@ -132,14 +132,14 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '16'
+        node-version: '22'
 
     # Step 3: Install dependencies
     - name: Install NPM dependencies
       run: npm install
 
     # Step 6: Generate SBOM for Javascript using Anchore's SBOM Action
-    - name: Generate SBOM for Javascript
+    - name: Generate SBOM for Docker image
       uses: anchore/sbom-action@v0
       with:
         format: spdx-json
@@ -157,15 +157,6 @@ jobs:
         image: my-node-app:latest
         format: spdx-json
         artifact-name: sbom-docker-image.json
-
-    # Step 7: Upload SBOMs as artifacts
-    - name: Upload SBOMs
-      uses: actions/upload-artifact@v4
-      with:
-        name: sbom-artifacts
-        path: |
-          sbom-node-js.json
-          sbom-docker-image.json
 ```
 
 ### **Explanation of Workflow Steps**
