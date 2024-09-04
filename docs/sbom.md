@@ -184,12 +184,14 @@ Once the workflow is configured, it will automatically run when:
 - You open or update a pull request targeting the `main` branch.
 
 ### SBOM Output Files:
-- **sbom-js-project.json**: Contains the SBOM for the JavaScript dependencies.
+- **sbom-node-js.json**: Contains the SBOM for the JavaScript dependencies.
 - **sbom-docker-image.json**: Contains the SBOM for the Docker image, including the Node.js runtime and other system components.
 
 ## Step 5: Accessing the SBOM Artifacts
 
 After the workflow runs successfully, you can download the SBOMs from the workflow run’s **Artifacts** section on the GitHub Actions page.
+
+What do realize about the two files? Why would you think one is bigger than the other?
 
 ---
 
