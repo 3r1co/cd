@@ -24,8 +24,8 @@ Throughout the course, the students will learn how to:
 
 1. [Static Code Analysis](./sonar.md)
 1. [3rd Party Dependency Check](./dependency-check.md)
-1. [Software Bill of Materials](./sbom.md)
 1. [Container Vulnerability Scanning](./clair.md)
+1. [Software Bill of Materials](./sbom.md)
 1. [Kubernetes Network Security Policies](./network-policies.md)
 1. [Git training](./git.md)
 
