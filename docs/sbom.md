@@ -139,7 +139,7 @@ jobs:
       run: npm install
 
     # Step 6: Generate SBOM for Javascript using Anchore's SBOM Action
-    - name: Generate SBOM for Docker image
+    - name: Generate SBOM for Javascript
       uses: anchore/sbom-action@v0
       with:
         format: json
