@@ -9,6 +9,7 @@ nav:
     #- CI with Github Actions and Docker: ecr.md
     - Static Code Analysis: sonar.md
     - 3rd Party Dependency Check: dependency-check.md
+    - Software Bill of Materials: sbom.md
     - Container Vulnerability Scanning with Trivy: clair.md
     - Kubernetes Network Policies: network-policies.md
     - Git training: git.md
