@@ -126,11 +126,11 @@ jobs:
     steps:
     # Step 1: Checkout the code
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # Step 2: Set up Node.js
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '16'
 
@@ -142,7 +142,7 @@ jobs:
     - name: Generate SBOM for Javascript
       uses: anchore/sbom-action@v0
       with:
-        format: json
+        format: spdx-json
         artifact-name: sbom-node-js.json
 
     # Step 5: Build Docker image
@@ -155,12 +155,12 @@ jobs:
       uses: anchore/sbom-action@v0
       with:
         image: my-node-app:latest
-        format: json
+        format: spdx-json
         artifact-name: sbom-docker-image.json
 
     # Step 7: Upload SBOMs as artifacts
     - name: Upload SBOMs
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: sbom-artifacts
         path: |
