@@ -5,7 +5,7 @@ In this tutorial, you will create a GitHub Actions workflow that:
 - Builds a **Docker image** for the project.
 - Generates an SBOM for the Docker image, including the Node.js runtime.
 
-This tutorial uses **CycloneDX** to generate the SBOM for the JavaScript project and **Anchore's SBOM Action** to generate the SBOM for the Docker image.
+This tutorial uses **Anchore's SBOM Action** to generate the SBOM for the JavaScript project and to generate the SBOM for the Docker image.
 
 ## Prerequisites
 
