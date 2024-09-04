@@ -1,5 +1,7 @@
 # Kubernetes Network Policies (30 minutes)
 
+__You need to use Minikube, *not* Docker Desktop for this exercise.__
+
 As you saw throughout the course, Kubernetes separates projects through the notion of __namespaces__.
 
 By default, Kubernetes enables Pods to communicate between namespaces, which goes against of the security principles that you learned about earlier: Least privilege. As a reminder, it is a security best practice to only allow the absolute necessary.
