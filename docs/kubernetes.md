@@ -160,4 +160,4 @@ As you already learned how to inject environment variables, let's now inject the
 ## Follow up exercise (30 Minutes)
 
 Try to launch a database in Kubernetes and connect an application with this database.  
-A simple example can be found [here](https://github.com/kubernetes/examples/tree/master/guestbook-go). It's written in Golang and uses Redis.
+A simple example can be found [here](https://github.com/kubernetes/examples/tree/master/web/guestbook-go). It's written in Golang and uses Redis.
