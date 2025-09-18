@@ -1,0 +1,866 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../docker/">
+      
+      
+        <link rel="next" href="../github/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Kubernetes Lab - ISEN Development Environment Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kubernetes-lab-1-hour" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ISEN Development Environment Course" class="md-header__button md-logo" aria-label="ISEN Development Environment Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ISEN Development Environment Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kubernetes Lab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ISEN Development Environment Course" class="md-nav__button md-logo" aria-label="ISEN Development Environment Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ISEN Development Environment Course
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Kubernetes Lab
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Lab
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Scaling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-up-exercise-30-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Follow up exercise (30 Minutes)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started on Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Actions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sbom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software Bill of Materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sonar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Static Code Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-check/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3rd Party Dependency Check
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clair/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container Vulnerability Scanning with Trivy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Network Policies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Scaling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-up-exercise-30-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Follow up exercise (30 Minutes)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="kubernetes-lab-1-hour">Kubernetes Lab (1 hour)</h1>
+<p>In this lab, you will deploy your previously created Docker image in Kubernetes.<br />
+The goal of this lab is to</p>
+<ul>
+<li>show you the usage of Kubernetes deployments and services</li>
+<li>how to use Kubernetes scaling capabilites</li>
+<li>how to access a service deployed in Kubernetes</li>
+</ul>
+<h2 id="application-deployment">Application Deployment</h2>
+<ol>
+<li>
+<p>Verify that you can access Kubernetes:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl version
+</code></pre></div>
+
+<p>If you see a <code>Server Version</code> like below, it means your Kubernetes CLI can connect to your Kubernetes VM:</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>kubectl<span class="w"> </span>version
+Client<span class="w"> </span>Version:<span class="w"> </span>version.Info<span class="o">{</span>Major:<span class="s2">&quot;1&quot;</span>,<span class="w"> </span>Minor:<span class="s2">&quot;13&quot;</span>,<span class="w"> </span>GitVersion:<span class="s2">&quot;v1.13.10&quot;</span>,<span class="w"> </span>GitCommit:<span class="s2">&quot;37d169313237cb4ceb2cc4bef300f2ae3053c1a2&quot;</span>,<span class="w"> </span>GitTreeState:<span class="s2">&quot;clean&quot;</span>,<span class="w"> </span>BuildDate:<span class="s2">&quot;2019-08-19T10:52:43Z&quot;</span>,<span class="w"> </span>GoVersion:<span class="s2">&quot;go1.11.13&quot;</span>,<span class="w"> </span>Compiler:<span class="s2">&quot;gc&quot;</span>,<span class="w"> </span>Platform:<span class="s2">&quot;linux/amd64&quot;</span><span class="o">}</span>
+Server<span class="w"> </span>Version:<span class="w"> </span>version.Info<span class="o">{</span>Major:<span class="s2">&quot;1&quot;</span>,<span class="w"> </span>Minor:<span class="s2">&quot;13&quot;</span>,<span class="w"> </span>GitVersion:<span class="s2">&quot;v1.13.10&quot;</span>,<span class="w"> </span>GitCommit:<span class="s2">&quot;37d169313237cb4ceb2cc4bef300f2ae3053c1a2&quot;</span>,<span class="w"> </span>GitTreeState:<span class="s2">&quot;clean&quot;</span>,<span class="w"> </span>BuildDate:<span class="s2">&quot;2019-08-19T10:44:49Z&quot;</span>,<span class="w"> </span>GoVersion:<span class="s2">&quot;go1.11.13&quot;</span>,<span class="w"> </span>Compiler:<span class="s2">&quot;gc&quot;</span>,<span class="w"> </span>Platform:<span class="s2">&quot;linux/amd64&quot;</span><span class="o">}</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Download the following file to your "DevelopmentEnvironment" folder:  </p>
+<ul>
+<li><a href="../files/kubernetes/deployment.yaml">deployment.yaml</a>  </li>
+</ul>
+</li>
+<li>
+<p>Open the file in an editor and verify that the <code>image:</code> key is referencing your previously built image</p>
+</li>
+<li>
+<p>Deploy your application with the following command:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl apply -f deployment.yaml
+</code></pre></div>
+
+</li>
+<li>
+<p>Verify that your application is running properly:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl get deployment
+</code></pre></div>
+
+<p>You shoud now see one running <strong>Pod</strong>, which is scheduled by the <strong>Deployment</strong> that you just created.</p>
+</li>
+<li>
+<p>You can also check the running Pods in your Kubernetes cluster by typing:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl get pods
+</code></pre></div>
+
+<p>This will give a list of running instances (a.k.a. Pods) of your application.<br />
+Write down the name of the Pod, you'll need it later for reference.</p>
+</li>
+<li>
+<p>In order to access your application, you have to deploy a Kubernetes service. <br />
+Download the following file your "DevelopmentEnvironment" folder: </p>
+<ul>
+<li><a href="../files/kubernetes/service.yaml">service.yaml</a> </li>
+</ul>
+<p>and apply the following command:    </p>
+<div class="codehilite"><pre><span></span><code>kubectl apply -f service.yaml
+</code></pre></div>
+
+</li>
+<li>
+<p>You have now deployed a so called <strong>NodePort</strong> Kubernetes <strong>Service</strong>. It opens a dedicated port on your Minikube VM, through which you can access the according service.<br />
+You can find the associated port number by typing:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl get svc
+</code></pre></div>
+
+<p>In the example below, the port number would be <strong>31478</strong>:</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w">  </span>
+NAME<span class="w">                </span>TYPE<span class="w">        </span>CLUSTER-IP<span class="w">       </span>EXTERNAL-IP<span class="w">   </span>PORT<span class="o">(</span>S<span class="o">)</span><span class="w">        </span>AGE<span class="w">  </span>
+kubernetes<span class="w">          </span>ClusterIP<span class="w">   </span><span class="m">10</span>.96.0.1<span class="w">        </span>&lt;none&gt;<span class="w">        </span><span class="m">443</span>/TCP<span class="w">        </span>126d
+webserver-service<span class="w">   </span>NodePort<span class="w">    </span><span class="m">10</span>.98.147.142<span class="w">    </span>&lt;none&gt;<span class="w">        </span><span class="m">80</span>:31478/TCP<span class="w">   </span>4s
+</code></pre></div>
+
+</li>
+<li>
+<p>In your browser, open http://localhost:xxxxx and add the port that you retrieved from the last command, e.g.:    <a href="http://localhost:31478">http://localhost:31478</a>.<br />
+   You should see "Hello World" example from before, but it's hosted in Kubernetes.<br />
+   You should also see that the hostname is equal to the Pod name that you wrote down earlier.</p>
+</li>
+</ol>
+<h2 id="application-scaling">Application Scaling</h2>
+<ol>
+<li>
+<p>Now you'll see the scaling capabilities of Kubernetes. Enter the following command:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl scale deployment/webserver-deployment --replicas=3
+</code></pre></div>
+
+<p>With this command, you update the Kubernetes <strong>Deployment</strong> and instruct it to have a total of <em>three</em> replicas. Kubernetes will handle that by instantiating <em>two</em> additional <strong>Pods</strong>. </p>
+</li>
+<li>
+<p>Refresh your browser serveral times and monitor how the hostname of your microservice changes.<br />
+   Congratulations, you just learned how to scale a service in Kubernetes.</p>
+</li>
+</ol>
+<h2 id="application-configuration">Application Configuration</h2>
+<ol>
+<li>
+<p>For the next step, we we'll see how to configure an application in Kubernetes.<br />
+   You might have noticed that in the <code>app.js</code> file, we are defining an environment variable <em>GREETING</em> with the default value <em>Hello World</em>.<br />
+   In a first step, we will change the Kubernetes the Kubernetes deployment and add environment variable section the Pod template:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl edit deployment webserver-deployment
+</code></pre></div>
+
+<p>and add the <em>env</em> section like described below:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">spec</span><span class="o">:</span>
+<span class="n">containers</span><span class="o">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">image</span><span class="o">:</span><span class="w"> </span><span class="n">mywebserver</span><span class="o">:</span><span class="mf">1.0</span>
+<span class="w">  </span><span class="n">imagePullPolicy</span><span class="o">:</span><span class="w"> </span><span class="n">IfNotPresent</span>
+<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">webserver</span>
+<span class="w">  </span><span class="n">env</span><span class="o">:</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">GREETING</span>
+<span class="w">    </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I&#39;m configured now&quot;</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Refresh your browser, and see how to greeting changed.</p>
+</li>
+<li>
+<p>Now let's use another mean to configure our application: the Kubernetes <strong>ConfigMap</strong>. Download the sample ConfigMap to your "DevelopmentEnvironment" folder:  </p>
+<ul>
+<li><a href="../files/kubernetes/configmap.yaml">configmap.yaml</a></li>
+</ul>
+<p>This way, you can decouple the application from the deployment configuration and therefore ease the reusability of your application. You can deploy the ConfigMap with the following command:  </p>
+<div class="codehilite"><pre><span></span><code>kubectl apply -f configmap.yaml
+</code></pre></div>
+
+</li>
+<li>
+<p>Now, you'll have to modify your deployment in order to consume the ConfigMap:</p>
+<div class="codehilite"><pre><span></span><code>kubectl edit deployment webserver-deployment
+</code></pre></div>
+
+<p>And edit the file in the following way:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">spec</span><span class="o">:</span>
+<span class="n">containers</span><span class="o">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">image</span><span class="o">:</span><span class="w"> </span><span class="n">mywebserver</span><span class="o">:</span><span class="mf">1.0</span>
+<span class="w">    </span><span class="n">imagePullPolicy</span><span class="o">:</span><span class="w"> </span><span class="n">IfNotPresent</span>
+<span class="w">    </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">webserver</span>
+<span class="w">    </span><span class="n">env</span><span class="o">:</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">GREETING</span>
+<span class="w">      </span><span class="n">valueFrom</span><span class="o">:</span>
+<span class="w">        </span><span class="n">configMapKeyRef</span><span class="o">:</span>
+<span class="w">          </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">webserver</span><span class="o">-</span><span class="n">configmap</span>
+<span class="w">          </span><span class="n">key</span><span class="o">:</span><span class="w"> </span><span class="n">greeting</span>
+</code></pre></div>
+
+</li>
+</ol>
+<h2 id="application-secrets">Application Secrets</h2>
+<p>Kubernetes also supports objects of the type <strong>Secret</strong>, that are meant to store sensitive data. Secrets can either be injected as environment variables or mounted in the Pods filesystem.<br />
+As you already learned how to inject environment variables, let's now inject the Kubernetes secret as a file into our pod.</p>
+<ol>
+<li>
+<p>Deploy a secret in our Kubernetes cluster: </p>
+<div class="codehilite"><pre><span></span><code>kubectl create secret generic webserver-secret --from-literal=secret.txt=&quot;Well done!&quot;
+</code></pre></div>
+
+</li>
+<li>
+<p>Update your Pod definiton to mount the <em>webserver-secret</em> secret in <em>/var/secret/</em>:</p>
+<div class="codehilite"><pre><span></span><code>kubectl edit deployment webserver-deployment
+</code></pre></div>
+
+<p>And edit the file in the following way:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">containers</span><span class="p">:</span><span class="w"> </span><span class="c1"># exists already</span>
+<span class="o">-</span><span class="w"> </span><span class="n">image</span><span class="p">:</span><span class="w"> </span><span class="n">mywebserver</span><span class="p">:</span><span class="mf">1.0</span><span class="w"> </span><span class="c1"># exists already</span>
+<span class="w">  </span><span class="n">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="n">IfNotPresent</span><span class="w"> </span><span class="c1"># exists already</span>
+<span class="w">  </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">webserver</span><span class="w"> </span><span class="c1"># exists already</span>
+<span class="w">  </span><span class="n">volumeMounts</span><span class="p">:</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">webserver</span><span class="o">-</span><span class="n">secret</span><span class="w"> </span><span class="c1"># References the name of the volume specified below</span>
+<span class="w">    </span><span class="n">mountPath</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/var/secret&quot;</span>
+<span class="w">    </span><span class="n">readOnly</span><span class="p">:</span><span class="w"> </span><span class="bp">true</span>
+<span class="n">volumes</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">webserver</span><span class="o">-</span><span class="n">secret</span>
+<span class="w">  </span><span class="n">secret</span><span class="p">:</span>
+<span class="w">    </span><span class="n">secretName</span><span class="p">:</span><span class="w"> </span><span class="n">webserver</span><span class="o">-</span><span class="n">secret</span><span class="w"> </span><span class="c1"># References the secret name from step 1</span>
+<span class="w">    </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="bp">false</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Refresh your browser, and see how the greeting changed.</p>
+</li>
+</ol>
+<h2 id="follow-up-exercise-30-minutes">Follow up exercise (30 Minutes)</h2>
+<p>Try to launch a database in Kubernetes and connect an application with this database.<br />
+A simple example can be found <a href="https://github.com/kubernetes/examples/tree/master/web/guestbook-go">here</a>. It's written in Golang and uses Redis.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2025 Eric Muellenbach - eric (at) 3r1.co
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
