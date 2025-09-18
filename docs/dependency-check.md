@@ -1,10 +1,18 @@
 # Static Code Analysis with OWASP Dependency Check (1 hour)
 
-After scanning your source code with Sonar, we now need to analyze the dependencies of your application, as they can also introduce vulnerabilities to your application.
+After analyzing your own source code with SonarQube, the next critical step is to examine the dependencies your application relies on. 
 
-One very famous tool to do so is **OWASP Dependency Check**. There is already a Github Action available for this tool [here](https://github.com/Sburris/dependency-check-action).
+Even if your code is secure, vulnerabilities can be introduced through third-party libraries, frameworks, and packages that your project consumes.
 
-In this exercise, integrate this program into your Github workflow and do the validation before you actually deploy resources in AWS.
+To address this, one of the most widely used tools is the OWASP Dependency Check. Developed under the Open Web Application Security Project (OWASP), it is a Software Composition Analysis (SCA) tool that scans the libraries in your project and identifies known vulnerabilities. 
+
+It does this by comparing your dependencies against the National Vulnerability Database (NVD) and other security advisories, flagging any components with reported CVEs (Common Vulnerabilities and Exposures).
+
+By integrating OWASP Dependency Check into your workflow, you ensure that insecure dependencies are identified early, preventing them from reaching production. This is crucial, as many high-profile breaches have been traced back to outdated or vulnerable third-party components.
+
+Fortunately, OWASP Dependency Check also provides a ready-to-use GitHub Action, which you can find [here](https://github.com/Sburris/dependency-check-action).
+
+In this exercise, integrate this program into your Github workflow.
 
 You need to save your report with the following instruction:
 
