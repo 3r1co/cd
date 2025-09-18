@@ -10,7 +10,14 @@ It does this by comparing your dependencies against the National Vulnerability D
 
 By integrating OWASP Dependency Check into your workflow, you ensure that insecure dependencies are identified early, preventing them from reaching production. This is crucial, as many high-profile breaches have been traced back to outdated or vulnerable third-party components.
 
-Fortunately, OWASP Dependency Check also provides a ready-to-use GitHub Action, which you can find [here](https://github.com/Sburris/dependency-check-action).
+Fortunately, OWASP Dependency Check also provides a ready-to-use GitHub Action, which you can find [here](https://github.com/3r1co/dependency-check-action).
+
+Add the following lines to your pipeline:
+
+    - uses: 3r1co/dependency-check-action@master
+      name: OWASP Dependency Check
+      with:
+        Project-Name: TestApp
 
 In this exercise, integrate this program into your Github workflow.
 
