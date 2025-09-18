@@ -24,14 +24,8 @@ In this exercise, integrate this program into your Github workflow.
 You need to save your report with the following instruction:
 
     - name: Archive dependency check reports
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: reports
         path: reports
 
-Attention: You will have to install the Node.JS dependencies before running the actual dependency check. You can do this by adding the following lines to your workflow after the checkout action:
-
-    - uses: actions/checkout@v2
-    - name: Install NPM dependencies
-      run: |
-        npm install --production --unsafe-perm
