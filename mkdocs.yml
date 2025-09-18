@@ -6,11 +6,10 @@ nav:
     - Kubernetes Lab: kubernetes.md
     - Getting Started on Github: github.md
     - Github Actions: actions.md
-    #- CI with Github Actions and Docker: ecr.md
+    - Software Bill of Materials: sbom.md
     - Static Code Analysis: sonar.md
     - 3rd Party Dependency Check: dependency-check.md
     - Container Vulnerability Scanning with Trivy: clair.md
-    - Software Bill of Materials: sbom.md
     - Kubernetes Network Policies: network-policies.md
     - Git training: git.md
     - The Project: project.md
